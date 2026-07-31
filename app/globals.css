@@ -91,6 +91,7 @@ main { position: relative; z-index: 2; overflow: clip; }
 .trajectory { position: relative; width: min(880px, 88%); margin-left: auto; }
 .trajectory-line { position: absolute; left: 0; top: 10px; bottom: 0; width: 1px; background: linear-gradient(var(--pink), var(--cyan), transparent); opacity: .45; }
 .experience-card { position: relative; padding: 0 0 6rem clamp(2rem, 5vw, 5rem); }
+.experience-card:last-child { padding-bottom: 0; }
 .trajectory-node { position: absolute; left: -7px; top: 2px; width: 15px; height: 15px; border: 2px solid; border-radius: 50%; background: #070712; }
 .experience-meta { display: flex; justify-content: space-between; margin-bottom: 1.15rem; color: #777586; font: .63rem var(--mono); letter-spacing: .12em; }
 .experience-card h3 { margin: 0; font: 400 clamp(2.1rem, 4.5vw, 4rem)/1 var(--serif); }
@@ -101,7 +102,8 @@ main { position: relative; z-index: 2; overflow: clip; }
 .experience-card li::before { content: "+"; position: absolute; left: 0; color: var(--cyan); }
 .experience-location { margin-top: 1.4rem; color: #666476; font: .62rem var(--mono); text-transform: uppercase; letter-spacing: .12em; }
 
-.projects-section { padding-bottom: 180px; }
+#experience { padding-bottom: 64px; }
+.projects-section { padding-top: 64px; padding-bottom: 180px; }
 .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .project-card { position: relative; min-height: 480px; border: 1px solid var(--line); background: linear-gradient(155deg, rgba(15,15,34,.82), rgba(7,7,17,.76)); overflow: hidden; }
 .project-card::before { content: ""; position: absolute; width: 220px; height: 220px; right: -80px; top: -80px; background: radial-gradient(circle, color-mix(in srgb, var(--project-color) 32%, transparent), transparent 65%); filter: blur(12px); }
@@ -192,6 +194,8 @@ footer { position: absolute; left: 0; right: 0; bottom: 24px; display: flex; jus
   .hero-coordinates { display: none; }
   .scroll-cue { bottom: 2rem; }
   .content-section { padding: 105px 0 85px; }
+  #experience { padding-bottom: 42px; }
+  .projects-section { padding-top: 48px; }
   .section-heading { margin-bottom: 3rem; }
   .skill-cluster { min-height: auto; }
   .trajectory-line { left: 4px; }
