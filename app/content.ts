@@ -10,6 +10,11 @@ export type Project = {
   challenge: string;
   learning: string;
   concept?: boolean;
+  badge?: string;
+  links?: Array<{
+    label: string;
+    href: string;
+  }>;
   color: string;
 };
 
@@ -104,45 +109,76 @@ export const projects: Project[] = [
     color: "#30d5c8",
   },
   {
-    id: "paraplay",
+    id: "ecommerce-platform",
     index: "02",
-    name: "Paraplay",
-    kicker: "Therapeutic game · Concept reconstruction",
-    summary: "A calmer mobile play space designed around accessible, low-pressure interaction.",
+    name: "E-commerce Platform",
+    kicker: "React storefront · Live frontend",
+    summary: "A multi-role shopping interface spanning discovery, checkout, account flows, and catalog administration.",
     description:
-      "A reconstructed case-study direction for Noor’s final-year therapeutic game: short guided activities, gentle feedback, and progress that never feels punitive.",
-    stack: ["Unity", "C#", "Android", "Figma"],
+      "A substantial React e-commerce client connected to a separate REST API. It combines customer shopping flows with protected user and admin workspaces, while keeping authentication, cart, search, and catalog state coordinated across the application.",
+    stack: ["React", "JavaScript", "React Router", "Axios", "Ant Design", "Braintree"],
     contributions: [
-      "Mapped a low-friction activity loop for mobile play.",
-      "Proposed accessible controls, calm feedback states, and session progression.",
-      "Designed a component-led interface direction for future validation.",
+      "Built customer journeys for browsing, category and price filtering, search, product details, cart persistence, and checkout.",
+      "Structured role-aware routing for user profiles and orders alongside admin catalog, category, inventory, and order management.",
+      "Connected REST endpoints through Axios and integrated React Context, Ant Design controls, toast feedback, and Braintree's checkout UI.",
     ],
     challenge:
-      "Balancing engagement with a visual and interaction system that does not overwhelm the intended user.",
+      "Keeping navigation, API-driven data, authentication state, and locally persisted cart behavior consistent across many screens and two user roles.",
     learning:
-      "Therapeutic experiences must be validated with domain experts and real users; visual polish alone is not evidence of efficacy.",
-    concept: true,
+      "The repository demonstrates the frontend integration layer. The separate API is a dependency, so this project is presented as a React client rather than proof of the backend implementation itself.",
+    badge: "Frontend repository reviewed",
+    links: [
+      { label: "Live demo", href: "https://noorulain7557.github.io/Ecommerce/" },
+      { label: "GitHub repository", href: "https://github.com/noorulain7557/Ecommerce" },
+    ],
     color: "#8b7cff",
   },
   {
     id: "smart-helmet",
     index: "03",
-    name: "Smart Helmet",
-    kicker: "Connected safety · Concept reconstruction",
-    summary: "A Python-led safety concept that turns sensor signals into timely, readable alerts.",
+    name: "Smart Helmet Simulator",
+    kicker: "Python safety system · Working simulation",
+    summary: "A modular rider-safety simulation that turns connection, time, and shock signals into coordinated responses.",
     description:
-      "A reconstructed product direction for the Smart Helmet project, focused on environmental awareness and a clear mobile companion experience.",
-    stack: ["Python", "IoT sensors", "Signal processing", "Android concept"],
+      "A runnable Python simulation for a smart helmet controller. It coordinates frequency-gated phone connectivity, scheduled night-vision lighting, shock-threshold monitoring, and an emergency dialer that records simulated location data.",
+    stack: ["Python", "OOP", "Modular design", "Sensor simulation", "Bluetooth simulation"],
     contributions: [
-      "Proposed a sensor-to-alert flow with explicit severity states.",
-      "Designed a simple monitoring interface for rapid status checks.",
-      "Defined failure and offline states for a more credible prototype path.",
+      "Separated Bluetooth, night-vision, sensor, and dialer behavior into focused Python modules orchestrated by one controller.",
+      "Modeled connection acceptance, timed lighting, randomized sensor readings, threshold-based crash detection, and an emergency response loop.",
+      "Added configurable frequencies, activation time, shock sensitivity, emergency number handling, and a simple call log.",
     ],
     challenge:
-      "Reducing noisy sensor readings into alerts that are useful without becoming distracting.",
+      "Coordinating several stateful safety behaviors while keeping each simulated hardware responsibility isolated and testable.",
     learning:
-      "Connected products need graceful failure states and clear confidence indicators before they can earn user trust.",
-    concept: true,
+      "This is software simulation, not deployed helmet hardware. A real safety product would still require physical sensors, calibration, false-positive testing, telephony permissions, and field validation.",
+    badge: "Runnable Python simulation",
+    links: [
+      { label: "GitHub repository", href: "https://github.com/noorulain7557/Smart_Helmet" },
+    ],
     color: "#ffb45f",
+  },
+  {
+    id: "diagonal-cipher",
+    index: "04",
+    name: "Diagonal Cipher",
+    kicker: "Python algorithm · Security learning",
+    summary: "A reversible substitution cipher built around alternating alphabet rows, key-based traversal, and wraparound logic.",
+    description:
+      "A compact Python command-line program that encrypts and decrypts text through a custom zigzag alphabet. The same numeric key drives forward and reverse traversal while spaces remain intact.",
+    stack: ["Python", "Algorithms", "String processing", "CLI", "Input validation"],
+    contributions: [
+      "Implemented matching encrypt and decrypt functions using alternating row traversal and index wraparound.",
+      "Handled case normalization, spaces, filler characters, repeated operations, and invalid numeric input.",
+      "Documented the cipher layout, execution flow, requirements, and command-line usage.",
+    ],
+    challenge:
+      "Maintaining exact symmetry between forward and reverse traversal while handling row changes and boundary wrapping.",
+    learning:
+      "This is an educational classical cipher, not secure modern cryptography. Its value is in algorithmic reasoning, reversible transformations, and careful edge-case handling.",
+    badge: "Educational cipher — not production security",
+    links: [
+      { label: "GitHub repository", href: "https://github.com/noorulain7557/Diagonal-Cipher" },
+    ],
+    color: "#ff7fd1",
   },
 ];

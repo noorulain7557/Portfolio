@@ -11,6 +11,10 @@ test("renders Noor's portfolio metadata and primary content", async () => {
   assert.match(html, /noorulain5075@gmail\.com/);
   assert.match(html, /linkedin\.com\/in\/noor-khalid-a606aa354/);
   assert.match(html, /application\/ld\+json/);
+  assert.match(html, /E-commerce Platform/);
+  assert.match(html, /Smart Helmet Simulator/);
+  assert.match(html, /Diagonal Cipher/);
+  assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });
 
@@ -22,7 +26,7 @@ test("emits a branded static 404 and search-engine controls", async () => {
   ]);
   assert.match(notFound, /Lost in space/);
   assert.match(robots, /User-Agent:\s*\*/i);
-  assert.match(sitemap, /https:\/\/noorulain\.dev/);
+  assert.match(sitemap, /https:\/\/noor-ul-ain-portfolio\.danish-kumar26\.chatgpt\.site/);
 });
 
 test("includes hardened Vercel response headers", async () => {

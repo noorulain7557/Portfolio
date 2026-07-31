@@ -7,9 +7,9 @@ import {
   Radar, ScanLine, ShieldCheck, Sparkles, TerminalSquare, X,
 } from "lucide-react";
 import {
-  SiAndroid, SiCss, SiGit, SiGithub, SiHtml5, SiJavascript, SiKalilinux,
-  SiNestjs, SiPostgresql, SiPostman, SiPython, SiReact, SiTypeorm,
-  SiTypescript, SiVite,
+  SiAndroid, SiAntdesign, SiAxios, SiBraintree, SiCss, SiGit, SiGithub,
+  SiHtml5, SiJavascript, SiKalilinux, SiNestjs, SiPostgresql, SiPostman,
+  SiPython, SiReact, SiReactrouter, SiTypeorm, SiTypescript, SiVite,
 } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa6";
 import type { IconType } from "react-icons";
@@ -25,6 +25,8 @@ const iconMap: Record<string, IconType | typeof Code2> = {
   Nmap: Radar, Nikto: ShieldCheck, Nuclei: ScanLine, Photon: Sparkles,
   Android: SiAndroid, Java: Code2, Python: SiPython, Git: SiGit,
   GitHub: SiGithub, "VS Code": TerminalSquare,
+  "React Router": SiReactrouter, Axios: SiAxios, "Ant Design": SiAntdesign,
+  Braintree: SiBraintree,
 };
 
 const navItems = [
@@ -77,7 +79,7 @@ function ProjectDialog({ project, onClose }: { project: Project | null; onClose:
           <motion.div ref={dialogRef} className="project-dialog" role="dialog" aria-modal="true" aria-labelledby="project-dialog-title" tabIndex={-1} initial={{ opacity: 0, y: 34, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 20, scale: 0.98 }} transition={{ type: "spring", stiffness: 260, damping: 27 }}>
             <button className="dialog-close" onClick={onClose} aria-label="Close project details"><X size={19} /></button>
             <div className="dialog-index">PROJECT / {project.index}</div>
-            {project.concept && <div className="concept-badge">Concept reconstruction</div>}
+            {(project.badge || project.concept) && <div className="concept-badge">{project.badge ?? "Concept reconstruction"}</div>}
             <p className="eyebrow" style={{ color: project.color }}>{project.kicker}</p>
             <h2 id="project-dialog-title">{project.name}</h2>
             <p className="dialog-lead">{project.description}</p>
@@ -88,7 +90,17 @@ function ProjectDialog({ project, onClose }: { project: Project | null; onClose:
                 <div><span>Key learning</span><p>{project.learning}</p></div>
               </div>
             </div>
-            <div className="stack-row" aria-label="Technology stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
+            <div className="stack-row" aria-label="Technology stack">{project.stack.map((item) => { const Icon = iconMap[item] ?? Code2; return <span key={item}><Icon aria-hidden="true" />{item}</span>; })}</div>
+            {project.links?.length ? (
+              <div className="project-links" aria-label={`${project.name} links`}>
+                {project.links.map((link) => (
+                  <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.label.includes("GitHub") ? <SiGithub aria-hidden="true" /> : <ArrowUpRight aria-hidden="true" />}
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </motion.div>
         </motion.div>
       )}
@@ -195,7 +207,7 @@ export default function Portfolio() {
         </section>
 
         <section id="projects" className="section-shell content-section projects-section">
-          <div className="section-heading"><span className="section-number">04 / WORLDS</span><div><p className="eyebrow">SELECTED PROJECTS</p><h2>Three worlds.<br /><em>Three kinds of thinking.</em></h2></div></div>
+          <div className="section-heading"><span className="section-number">04 / WORLDS</span><div><p className="eyebrow">SELECTED PROJECTS</p><h2>Four builds.<br /><em>One widening range.</em></h2></div></div>
           <div className="projects-grid">
             {projects.map((item, index) => (
               <motion.article className="project-card" key={item.id} style={{ "--project-color": item.color } as React.CSSProperties} initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ delay: index * 0.1 }}>
@@ -204,7 +216,7 @@ export default function Portfolio() {
                   <div className="project-topline"><span>{item.kicker}</span><ArrowUpRight size={18} /></div>
                   <h3>{item.name}</h3><p>{item.summary}</p>
                   <div className="mini-stack">{item.stack.slice(0, 3).map((tech) => <span key={tech}>{tech}</span>)}</div>
-                  {item.concept && <small>Clearly labeled concept reconstruction</small>}
+                  {(item.badge || item.concept) && <small>{item.badge ?? "Clearly labeled concept reconstruction"}</small>}
                 </button>
               </motion.article>
             ))}
