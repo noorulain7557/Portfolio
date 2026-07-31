@@ -106,11 +106,11 @@ main { position: relative; z-index: 2; overflow: clip; }
 .project-card { position: relative; min-height: 480px; border: 1px solid var(--line); background: linear-gradient(155deg, rgba(15,15,34,.82), rgba(7,7,17,.76)); overflow: hidden; }
 .project-card::before { content: ""; position: absolute; width: 220px; height: 220px; right: -80px; top: -80px; background: radial-gradient(circle, color-mix(in srgb, var(--project-color) 32%, transparent), transparent 65%); filter: blur(12px); }
 .project-card button { position: relative; z-index: 1; width: 100%; height: 100%; min-height: 480px; display: flex; flex-direction: column; align-items: flex-start; padding: 1.3rem; border: 0; background: none; text-align: left; cursor: pointer; }
-.planet-visual { position: relative; width: 100%; height: 190px; display: grid; place-items: center; }
-.planet-visual i { display: block; width: 112px; height: 112px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--project-color) 68%, white); background: radial-gradient(circle at 35% 28%, color-mix(in srgb, var(--project-color) 65%, white), var(--project-color) 28%, #111225 68%); box-shadow: 0 0 45px color-mix(in srgb, var(--project-color) 26%, transparent), inset -22px -18px 30px rgba(0,0,0,.42); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
-.planet-visual::after { content: ""; position: absolute; width: 165px; height: 48px; border: 1px solid color-mix(in srgb, var(--project-color) 55%, transparent); border-radius: 50%; transform: rotate(-13deg); }
-.planet-visual span { position: absolute; top: 8px; right: 4px; color: #5e5b6e; font: .65rem var(--mono); }
-.project-card:hover .planet-visual i, .project-card button:focus-visible .planet-visual i { transform: scale(1.08) rotate(8deg); }
+.planet-visual { position: relative; width: calc(100% + 2.6rem); height: 270px; display: grid; place-items: center; margin: -1.3rem -1.3rem 1.4rem; overflow: hidden; border-bottom: 1px solid color-mix(in srgb, var(--project-color) 24%, transparent); background: radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--project-color) 13%, transparent), #060611 72%); }
+.planet-visual img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.03); filter: saturate(.92) contrast(1.04); transition: transform .65s cubic-bezier(.2,.8,.2,1), filter .35s ease; }
+.planet-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 56%, rgba(6,6,17,.84) 100%); box-shadow: inset 0 0 58px rgba(0,0,0,.22); pointer-events: none; }
+.planet-visual span { position: absolute; z-index: 2; top: 16px; right: 18px; color: color-mix(in srgb, var(--project-color) 60%, #777486); font: .65rem var(--mono); text-shadow: 0 0 14px var(--project-color); }
+.project-card:hover .planet-visual img, .project-card button:focus-visible .planet-visual img { transform: scale(1.1); filter: saturate(1.08) contrast(1.08); }
 .project-topline { width: 100%; display: flex; justify-content: space-between; gap: .5rem; color: var(--project-color); font: .62rem var(--mono); letter-spacing: .11em; text-transform: uppercase; }
 .project-card h3 { margin: .9rem 0 .7rem; font: 400 2rem/1.05 var(--serif); }
 .project-card p { margin: 0; color: #9390a3; font-size: .86rem; line-height: 1.6; }
@@ -178,6 +178,7 @@ footer { position: absolute; left: 0; right: 0; bottom: 24px; display: flex; jus
   .skills-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .project-card, .project-card button { min-height: 440px; }
+  .planet-visual { height: 235px; }
   .trajectory { width: 100%; }
   .dialog-grid { grid-template-columns: 1fr; gap: 2rem; }
 }

@@ -15,6 +15,8 @@ test("renders Noor's portfolio metadata and primary content", async () => {
   assert.match(html, /Smart Helmet Simulator/);
   assert.match(html, /Diagonal Cipher/);
   assert.match(html, /og\.png/);
+  assert.match(html, /project-farm\.webp/);
+  assert.match(html, /favicon\.png/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });
 

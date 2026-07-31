@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   ArrowDown, ArrowUpRight, Braces, Code2, Mail, Menu, Orbit,
@@ -212,7 +213,7 @@ export default function Portfolio() {
             {projects.map((item, index) => (
               <motion.article className="project-card" key={item.id} style={{ "--project-color": item.color } as React.CSSProperties} initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ delay: index * 0.1 }}>
                 <button onClick={() => openProject(item)} aria-label={`Open ${item.name} case study`}>
-                  <div className="planet-visual" aria-hidden="true"><i /><span>{item.index}</span></div>
+                  <div className="planet-visual" aria-hidden="true"><Image src={item.art} alt="" fill sizes="(max-width: 860px) 100vw, 50vw" unoptimized /><span>{item.index}</span></div>
                   <div className="project-topline"><span>{item.kicker}</span><ArrowUpRight size={18} /></div>
                   <h3>{item.name}</h3><p>{item.summary}</p>
                   <div className="mini-stack">{item.stack.slice(0, 3).map((tech) => <span key={tech}>{tech}</span>)}</div>

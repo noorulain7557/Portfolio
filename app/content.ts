@@ -15,6 +15,7 @@ export type Project = {
     label: string;
     href: string;
   }>;
+  art: string;
   color: string;
 };
 
@@ -106,6 +107,7 @@ export const projects: Project[] = [
       "Keeping data relationships reliable while records moved through several operational stages.",
     learning:
       "Strong backend design is less about isolated endpoints and more about protecting the meaning of data across a full workflow.",
+    art: "/project-farm.webp",
     color: "#30d5c8",
   },
   {
@@ -131,6 +133,7 @@ export const projects: Project[] = [
       { label: "Live demo", href: "https://noorulain7557.github.io/Ecommerce/" },
       { label: "GitHub repository", href: "https://github.com/noorulain7557/Ecommerce" },
     ],
+    art: "/project-ecommerce.webp",
     color: "#8b7cff",
   },
   {
@@ -155,6 +158,7 @@ export const projects: Project[] = [
     links: [
       { label: "GitHub repository", href: "https://github.com/noorulain7557/Smart_Helmet" },
     ],
+    art: "/project-helmet.webp",
     color: "#ffb45f",
   },
   {
@@ -179,6 +183,7 @@ export const projects: Project[] = [
     links: [
       { label: "GitHub repository", href: "https://github.com/noorulain7557/Diagonal-Cipher" },
     ],
+    art: "/project-cipher.webp",
     color: "#ff7fd1",
   },
 ];

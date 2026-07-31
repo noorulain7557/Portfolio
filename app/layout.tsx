@@ -21,7 +21,14 @@ export const metadata: Metadata = {
     description: "An immersive portfolio built across layers.",
     images: ["/og.png"],
   },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: "/favicon-32.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 const structuredData = {
